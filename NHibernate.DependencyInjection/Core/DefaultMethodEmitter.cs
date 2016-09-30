@@ -177,5 +177,10 @@ namespace NHibernate.DependencyInjection.Core
             }
             il.Emit(OpCodes.Unbox_Any, returnType);
         }
+
+        public void EmitMethodBody(MethodBuilder proxyMethod, MethodBuilder callbackMethod, MethodInfo method, FieldInfo field)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -35,8 +35,9 @@ namespace NHibernate.DependencyInjection.Core
 
         public override object GetFieldInterceptionProxy(object instanceToWrap)
         {
-            var interceptor = new DefaultDynamicLazyFieldInterceptor(instanceToWrap);
-            return _factory.CreateProxy(PersistentClass, interceptor, new[] { typeof(IFieldInterceptorAccessor) });
+            //https://github.com/nhibernate/nhibernate-core/commit/b26e622df1f834c69c9086e70f212bc460a5ad8e
+            //Copied from base
+            throw new NotSupportedException();
         }
     }
 }

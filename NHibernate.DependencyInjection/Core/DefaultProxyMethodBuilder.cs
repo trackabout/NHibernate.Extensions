@@ -50,9 +50,8 @@ namespace NHibernate.DependencyInjection.Core
 					typeArgsBuilder[index].SetInterfaceConstraints(typeArgs[index].GetGenericParameterConstraints());
 				}
 			}
-			var il = methodBuilder.GetILGenerator();
 			Debug.Assert(MethodBodyEmitter != null);
-			MethodBodyEmitter.EmitMethodBody(il, method, field);
+            MethodBodyEmitter.EmitMethodBody(methodBuilder, null, method, field);
 		}
 	}
 }

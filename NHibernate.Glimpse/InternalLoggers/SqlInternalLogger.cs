@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Web;
 using Glimpse.Core.Extensibility;
 using NHibernate.Glimpse.Core;
 
@@ -19,6 +20,8 @@ namespace NHibernate.Glimpse.InternalLoggers
 
         public void Debug(object message)
         {
+            if (HttpContext.Current == null) return;
+
             if (_runtime == null) return;
             if (_runtime.Invoke() == RuntimePolicy.Off) return;
             if (message == null) return;
